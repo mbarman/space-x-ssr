@@ -32,38 +32,7 @@
         </div>
 
         <div class="cards-div">
-            <div *ngFor="let card of cards;" class="spacex-card">
-                <div class="card-content">
-                    <div class="img-container">
-                        <img alt="" width="223" height="300" src="{{card.links.mission_patch_small}} ">
-                    </div>
-                    <div class="card-title">
-                        {{card.mission_name}} <span>#</span>{{card.flight_number}}
-                    </div>
-
-                    <div>
-                        <span class="card-key">Mission Ids:</span>
-                        <ul *ngIf="card.mission_id.length">
-                            <li class="card-value" *ngFor="let id of card.mission_id">{{id}}</li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <span class="card-key">Launch Year:</span>
-                        <span class="card-value">{{card.launch_year}}</span>
-                    </div>
-
-                    <div>
-                        <span class="card-key">Successful Launch:</span>
-                        <span class="card-value">{{card.launch_success}}</span>
-                    </div>
-
-                    <div>
-                        <span class="card-key">Successful Landing:</span>
-                        <span class="card-value">{{card.launch_landing}}</span>
-                    </div>
-                </div>
-            </div>
+            <app-card *ngFor="let card of cards;" [card]="card" class="spacex-card"></app-card>
         </div>
     </div>
 </div>

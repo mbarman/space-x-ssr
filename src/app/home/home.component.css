@@ -130,26 +130,6 @@
     width: 90px;
 }
 
-.img-container {
-    background-color: #DCDCDC;
-}
-
-.card-title {
-    font-weight: bold;
-    font-size: 14px;
-    color: blue;
-}
-
-.card-key {
-    font-weight: bold;
-    font-size: 15px;
-}
-
-.card-value {
-    color: blue;
-    margin-left: 5px;
-}
-
 .filter-header {
     position: absolute;
     left: 43px;
