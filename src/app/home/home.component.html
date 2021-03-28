@@ -1,0 +1,69 @@
+<div class="main-title">
+    <div class="title-container">SpaceX Launch Programs</div>
+</div>
+<div class="card-container">
+    <div class="cards-container-wrapper">
+        <!-- <div class="main-title">
+            <h3>SpaceX Launch Programs</h3>
+        </div> -->
+        <div class="filter-div">
+            <div class="cards-container">
+
+                <div class="spacex-card">
+                    <h4>Filters</h4>
+                    <div class="card-key filter-header">Launch Year</div>
+                    <div class="card-content-years">
+                        <button (click)="filterYear($event)" [class.active]="year == selectedYear" *ngFor="let year of launchYears;" type="button" class="btn btn-success btn-sm  btn-custom-width">{{year}}</button>
+                    </div>
+
+                    <div class="card-key filter-header" style="margin-top: 10px;">Successful Launch</div>
+                    <div class="card-content-years">
+                        <button [class.active]="selectedLaunch == 'True'" aria-pressed="selectedLaunch == 'True'" (click)="launch($event)" type="button" class="btn btn-success btn-sm btn-custom-width">True</button>
+                        <button [class.active]="selectedLaunch == 'False'" aria-pressed="selectedLaunch == 'False'" (click)="launch($event)" type="button" class="btn btn-success btn-sm btn-custom-width">False</button>
+                    </div>
+
+                    <div class="card-key filter-header" style="margin-top: 10px;">Successful Landing</div>
+                    <div class="card-content-years">
+                        <button [class.active]="selectedLanding == 'True'" (click)="landing($event)" type="button" class="btn btn-success btn-sm btn-custom-width">True</button>
+                        <button [class.active]="selectedLanding == 'False'" (click)="landing($event)" type="button" class="btn btn-success btn-sm btn-custom-width">False</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards-div">
+            <div *ngFor="let card of cards;" class="spacex-card">
+                <div class="card-content">
+                    <div class="img-container">
+                        <img alt="" width="223" height="300" src="{{card.links.mission_patch_small}} ">
+                    </div>
+                    <div class="card-title">
+                        {{card.mission_name}} <span>#</span>{{card.flight_number}}
+                    </div>
+
+                    <div>
+                        <span class="card-key">Mission Ids:</span>
+                        <ul *ngIf="card.mission_id.length">
+                            <li class="card-value" *ngFor="let id of card.mission_id">{{id}}</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <span class="card-key">Launch Year:</span>
+                        <span class="card-value">{{card.launch_year}}</span>
+                    </div>
+
+                    <div>
+                        <span class="card-key">Successful Launch:</span>
+                        <span class="card-value">{{card.launch_success}}</span>
+                    </div>
+
+                    <div>
+                        <span class="card-key">Successful Landing:</span>
+                        <span class="card-value">{{card.launch_landing}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
