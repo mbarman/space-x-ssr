@@ -1,3 +1,5 @@
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
@@ -8,7 +10,8 @@ describe('HomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      declarations: [ HomeComponent ],
+      imports: [HttpClientModule, RouterTestingModule]
     })
     .compileComponents();
   });
@@ -22,4 +25,17 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it(`'initiateSubscription' should called 'preselectButton' method`, () =>{
+    spyOn(component,'preselectButton');
+    component.initiateSubscription();
+    expect(component.preselectButton).toHaveBeenCalled();
+  })
+
+  it(`'initiateSubscription' should called 'getData' method`, () =>{
+    spyOn(component,'getData');
+    component.initiateSubscription();
+    expect(component.getData).toHaveBeenCalled();
+  })
+
 });

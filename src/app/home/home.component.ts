@@ -28,10 +28,7 @@ export class HomeComponent implements OnInit {
   initiateSubscription(){
     this.activatedRoute.params.subscribe((params) =>{
       this.preselectButton(params);
-
-
       if (isPlatformBrowser(this._platformId)) {
-        console.log('rendered in browser');
         if(params.hasOwnProperty('launch_year') || params.hasOwnProperty('launch_success') || params.hasOwnProperty('land_success')){
           this.getFilteredData(params);
         } else {
@@ -39,7 +36,6 @@ export class HomeComponent implements OnInit {
         }
      }
      if (isPlatformServer(this._platformId)) {
-       console.log('rendered in server');
        this.getData(this.baseAPI);
      }
 
